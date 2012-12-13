@@ -1,0 +1,107 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+            <p>
+                Welcome to the SignalR Gameroom for TicTacToe
+            </p>
+        </div>
+    </section>
+}
+
+<h1>Select a Room:</h1>
+
+<ul id="Rooms">
+</ul>
+<div id="currentRoomDiv">
+    <span id="currentRoom">Room</span> (<a href="#" id="leaveCurrentRoom">Leave the Room</a>)
+</div>
+<div id="gameBoardDiv">
+    <table>
+        <tr>
+            <td class="GameTblCell">
+                <div id="Me">
+                    Me:
+                    <div id="MyName"></div>
+                    <div id="MyColor">
+                    </div>
+                    <div id="MyState">
+                    </div>
+                </div>
+            </td>
+            <td class="GameTblCell">
+                <table>
+                    <tr>
+                        <td>
+                            <input type="button" id="block0" index="0" value="_" />
+                        </td>
+                        <td>
+                            <input type="button" id="block1" index="1" value="_" />
+                        </td>
+                        <td>
+                            <input type="button" id="block2" index="2" value="_" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="button" id="block3" index="3" value="_" />
+                        </td>
+                        <td>
+                            <input type="button" id="block4" index="4" value="_" />
+                        </td>
+                        <td>
+                            <input type="button" id="block5" index="5" value="_" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="button" id="block6" index="6" value="_" />
+                        </td>
+                        <td>
+                            <input type="button" id="block7" index="7" value="_" />
+                        </td>
+                        <td>
+                            <input type="button" id="block8" index="8" value="_" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td class="GameTblCell">
+                <div id="Opponent">
+                    Opponent:
+                    <div id="OpponentName">
+                    </div>
+                    <div id="OpponentColor">
+                    </div>
+                    <div id="OpponentState">
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <div id="GameState">
+    </div>
+
+    <div id="ResetGameDiv"><a href="#" id="ResetGame">Reset Game</a></div>
+</div>
+
+<h3>Server Msg:</h3>
+<div id="msg">
+</div>
+
+<h3>Local Events:</h3>
+<div id="EventsList">
+</div>
+
+@section scripts {
+    @Scripts.Render("~/bundles/jquerysignalr")
+    <script src="signalR/hubs" type="text/javascript"></script>
+    @Scripts.Render("~/bundles/board")
+}
