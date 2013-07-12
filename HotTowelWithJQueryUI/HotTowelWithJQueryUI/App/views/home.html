@@ -1,3 +1,16 @@
 ﻿<section>
     <h2 class="page-title" data-bind="text: title"></h2>
+
+    <label for="name-search" >Search language: </label>
+<input type="text" id="name-search" data-bind="value: langName,
+    ko_autocomplete: { source: getLangs(), select: addLang }"/>
+<div style="margin-top:1em">
+    The observable array contains the following elements:
+    <ul data-bind="foreach: selectedLangs">
+        <li data-bind="text: $data" />
+    </ul>        
+</div>    
+
+
 </section>
+
